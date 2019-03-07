@@ -58,6 +58,10 @@ export default {
   },
   async created () {
     this.claims = await Object.entries(await this.$auth.getUser()).map(entry => ({ claim: entry[0], value: entry[1] }))
+
+    // baca dari local storage
+    let myToken  = localStorage.getItem('KEY_TOKEN')
+    console.log('myTOken is: '+myToken)    
   }
 }
 </script>
