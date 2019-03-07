@@ -105,6 +105,26 @@ export default {
       })
       this.messages = messages
     } catch (e) {
+        
+      // akses token 
+      let mToken = JSON.parse(JSON.stringify(accessToken))
+      // console.log(mToken)
+      
+      // simpen ke local storage
+      if (window.localStorage) {
+       localStorage.setItem('KEY_TOKEN',mToken)        
+      }
+
+      // //cookie
+      // createCookie("MY_TOKEN",mToken)
+      // function createCookie(key, value){
+      //   let cookie = escape(key) + "=" +escape(value)+";";
+      //   document.cookie =  cookie;
+      //   console.log(cookie);
+      //   console.log("creting new cookie w/ key: "+key + " value: "+value);
+      // }
+
+
       console.error(e)
       this.failed = true
     }
